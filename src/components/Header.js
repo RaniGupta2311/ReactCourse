@@ -1,29 +1,30 @@
-import {useState} from "react"
+import {useState} from "react";
+import Logo from "../assets/img/foodvilla.png";
+import {Link} from "react-router-dom";
 const loggedInUser=()=>{
   return true;
 }
 const Title=()=>{
     return (
       <a href="/"><img src="https://obs.line-scdn.net/0m0339dd5b72513e8a8d6127b836e5ecf1e128f1da5cb7?0" alt="logo" className="logo"/></a>
+      // loading image via importing image from locally
+      // <a href="/"><img src={Logo} alt="logo" className="logo"/></a>
     )
   }
 
 const Header=()=>{
   const [isLoggedIn,setIsLoggedIn]=useState(false);
-  // let title="Food Villa"
-  const [title,setTitle]=useState("FoodVilla");
-  // console.log("render");
+  // what is the output of below
+  // console.log(useState());
     return (
       <div className="header">
         <Title/>
-        <h1>{title}</h1>
-        {/* it wont change the title on click */}
-        <button onClick={()=>setTitle("New Food App")}>Change title</button>
         <div className="nav-items">
           <ul>
-            <li>Home</li>
-            <li>About</li>
-            <li>Contact</li>
+            <Link to="/home"><li>Home</li></Link>
+            {/* <a href="/about"><li>About</li></a> */}
+            <Link to="/about"><li>About</li></Link>
+            <Link to="/contact"><li>Contact</li></Link>
             <li>Cart</li>
           </ul>
         </div>

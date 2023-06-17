@@ -1,5 +1,6 @@
 export const IMG_CDN_URL="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/";
-
+// all restaurant https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.444980032351513&lng=78.35968963801861&page_type=DESKTOP_WEB_LISTING
+// restaurant menu https://www.swiggy.com/dapi/menu/quick?menuId=34633&categories=true
 export const restaurantList=[
     {
       "type": "restaurant",
