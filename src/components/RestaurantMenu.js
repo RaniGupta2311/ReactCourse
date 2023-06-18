@@ -38,7 +38,7 @@ const RestaurantMenu=()=>{
         <div className="menu-container">
             <h2>Menu</h2>
             <div className="underline"></div>
-                {console.log(Object.values(restaurant.menu.items))}
+                {/* {console.log(Object.values(restaurant.menu.items))} */}
                 {
                     Object.values(restaurant?.menu?.items).map((item)=>(
                         /* <li key={item.id}>{item.name}</li> */
