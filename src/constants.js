@@ -2,6 +2,7 @@ export const IMG_CDN_URL="https://res.cloudinary.com/swiggy/image/upload/fl_loss
 // all restaurant https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.444980032351513&lng=78.35968963801861&page_type=DESKTOP_WEB_LISTING
 // restaurant menu https://www.swiggy.com/dapi/menu/quick?menuId=34633&categories=true
 // github userinfo https://api.github.com/users/Ranigupta2311
+export const FETCH_URL_MENU="https://www.swiggy.com/dapi/menu/quick?menuId=";
 export const restaurantList=[
     {
       "type": "restaurant",

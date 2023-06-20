@@ -3,17 +3,10 @@ import RestaurantCard from "./RestaurantCard";
 import { useState,useEffect } from "react";
 import Shimmer from "./Shimmer"
 import {Link} from "react-router-dom";
-
-function filterData(sText,rest){
-  const filteredData=rest.filter((res)=>res?.data?.name.toLowerCase().includes(sText.toLowerCase()))
-  return filteredData;
-}
-
+import {filterData} from "../utils/helper";
+import useOnline from "../utils/useOnline"
 const Body = () => {
   const [searchText, setSearchText] = useState("");
-  // showing old data before api call
-  // const [restaurants, setRestaurants] = useState(restaurantList);
-  // this wont show any data
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [allRestaurants,setAllRestaurants]=useState([]);
   
@@ -31,6 +24,10 @@ const Body = () => {
     setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
     setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
   }
+
+  // we are checking user is online or offline 
+  const isOnline=useOnline();
+  if(!isOnline) return <h1>🛑 Please Check your internet coonection. Lookslike you are offline</h1>
 
   // console.log("render");
   if (!allRestaurants) return null

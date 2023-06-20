@@ -3,33 +3,15 @@ import {useState, useEffect} from "react";
 import {IMG_CDN_URL} from "../constants";
 import Shimmer from "./Shimmer";
 import MenuCard from "./MenuCard";
+import useRestaurant from "../utils/useRestaurant";
 const RestaurantMenu=()=>{
     // how to read dynamic URL params
     const params=useParams();
-    // console.log(params);
     const {resId} = params;
-    // console.log(id);
-    // rendering on the ui
-    // const [restaurant,setRestaurant]=useState({});
-
-    // we are getting error ,till the time our restaurant is not there in the initial render
-    // it is empty object but still we are reading so many things
-
-    const [restaurant,setRestaurant]=useState(null);
-    
-
-    useEffect(()=>{
-        getMenuDetails();
-    },[])
-
-    async function getMenuDetails(){
-        const allMenu=await fetch("https://www.swiggy.com/dapi/menu/quick?menuId="+resId);
-        const res=await allMenu.json();
-        // console.log(res?.data);
-        // console.log(res?.data.menu.items);
-        setRestaurant(res?.data)
-    }
-
+    // const [restaurant,setRestaurant]=useState(null);
+    // using our custome hook
+    const restaurant=useRestaurant(resId);
+  
     return (!restaurant) ? <Shimmer/> : (
         <div className="menu-main">
         <div>

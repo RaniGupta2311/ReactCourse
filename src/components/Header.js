@@ -1,6 +1,7 @@
 import {useState} from "react";
 import Logo from "../assets/img/foodvilla.png";
 import {Link} from "react-router-dom";
+import useOnline from "../utils/useOnline"; 
 const loggedInUser=()=>{
   return true;
 }
@@ -14,6 +15,7 @@ const Title=()=>{
 
 const Header=()=>{
   const [isLoggedIn,setIsLoggedIn]=useState(false);
+  const isOnline=useOnline();
   // what is the output of below
   // console.log(useState());
     return (
@@ -21,13 +23,17 @@ const Header=()=>{
         <Title/>
         <div className="nav-items">
           <ul>
-            <Link to="/home"><li>Home</li></Link>
+            <Link to="/"><li>Home</li></Link>
             {/* <a href="/about"><li>About</li></a> */}
             <Link to="/about"><li>About</li></Link>
             <Link to="/contact"><li>Contact</li></Link>
+            <Link to="/instamart"><li>Instamart</li></Link>
             <li>Cart</li>
           </ul>
         </div>
+      {/* here we are showing online offline status alongwith login */}
+
+      <h2>{isOnline ? '✅' : '🛑'}</h2>
         {
           isLoggedIn?(
             <button onClick={()=>setIsLoggedIn(false)}>Logout</button>
