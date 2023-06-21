@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react";
 import { FETCH_URL_MENU } from "../constants";
-const useRestaurant=()=>{
+const useRestaurant=(resId)=>{
     const [restaurant,setRestaurant]=useState(null);
     // get data from api
      useEffect(()=>{

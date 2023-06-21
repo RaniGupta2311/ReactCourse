@@ -35,10 +35,10 @@ const Body = () => {
   return (allRestaurants.length===0)?<Shimmer/> :
   (
     <>
-      <div className="search-container">
+      <div className="p-5 my-5 bg-amber-200">
         <input
           type="text"
-          className="search-input"
+          className="focus:bg-green-50 p-1 m-1"
           placeholder="Search"
           value={searchText}
           onChange={(e) => {
@@ -46,7 +46,7 @@ const Body = () => {
           }}
         />
         <button
-         className="search-btn"
+         className="py-1 px-4 m-2 bg-purple-900 text-white rounded-md hover:bg-sky-700"
          onClick={()=>{
           //  filter data
           const data=filterData(searchText,allRestaurants)
@@ -58,7 +58,7 @@ const Body = () => {
       </div>
 
         {/* here we are showing shimmer effect if there is no restaurant found in search and also search input is there if it shimmered */}
-      <div className="restaurant-list">
+      <div className="flex flex-wrap">
         {(filteredRestaurants.length===0)? <h1>Oops!! No match found</h1> :filteredRestaurants.map((res) => {
           return (
             <Link to={"/restaurant/"+res.data.id} key={res.data.id} ><RestaurantCard {...res.data} /></Link>

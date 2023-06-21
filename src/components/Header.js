@@ -7,7 +7,7 @@ const loggedInUser=()=>{
 }
 const Title=()=>{
     return (
-      <a href="/"><img src="https://obs.line-scdn.net/0m0339dd5b72513e8a8d6127b836e5ecf1e128f1da5cb7?0" alt="logo" className="logo"/></a>
+      <a href="/"><img src="https://obs.line-scdn.net/0m0339dd5b72513e8a8d6127b836e5ecf1e128f1da5cb7?0" alt="logo" className="h-28 p-2"/></a>
       // loading image via importing image from locally
       // <a href="/"><img src={Logo} alt="logo" className="logo"/></a>
     )
@@ -19,15 +19,15 @@ const Header=()=>{
   // what is the output of below
   // console.log(useState());
     return (
-      <div className="header">
+      <div className="flex justify-between bg-amber-200 drop-shadow-md sm:bg-blue-200">
         <Title/>
         <div className="nav-items">
-          <ul>
-            <Link to="/"><li>Home</li></Link>
+          <ul className="flex py-10">
+            <Link to="/"><li className="px-2">Home</li></Link>
             {/* <a href="/about"><li>About</li></a> */}
-            <Link to="/about"><li>About</li></Link>
-            <Link to="/contact"><li>Contact</li></Link>
-            <Link to="/instamart"><li>Instamart</li></Link>
+            <Link to="/about"><li className="px-2">About</li></Link>
+            <Link to="/contact"><li className="px-2">Contact</li></Link>
+            <Link to="/instamart"><li className="px-2">Instamart</li></Link>
             <li>Cart</li>
           </ul>
         </div>
