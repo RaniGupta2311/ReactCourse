@@ -1,7 +1,8 @@
-import {useState} from "react";
+import {useState,useContext} from "react";
 import Logo from "../assets/img/foodvilla.png";
 import {Link} from "react-router-dom";
 import useOnline from "../utils/useOnline"; 
+import UserContext from "../utils/UserContext";
 const loggedInUser=()=>{
   return true;
 }
@@ -18,6 +19,7 @@ const Header=()=>{
   const isOnline=useOnline();
   // what is the output of below
   // console.log(useState());
+  const {user} = useContext(UserContext)
     return (
       <div className="flex justify-between bg-amber-200 drop-shadow-md sm:bg-blue-200">
         <Title/>
@@ -34,6 +36,7 @@ const Header=()=>{
       {/* here we are showing online offline status alongwith login */}
 
       <h2>{isOnline ? '✅' : '🛑'}</h2>
+      <span className="p-10 font-bold text-red-900">{user.name}</span>
         {
           isLoggedIn?(
             <button onClick={()=>setIsLoggedIn(false)}>Logout</button>
