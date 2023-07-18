@@ -3,6 +3,8 @@ import Logo from "../assets/img/foodvilla.png";
 import {Link} from "react-router-dom";
 import useOnline from "../utils/useOnline"; 
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
+
 const loggedInUser=()=>{
   return true;
 }
@@ -19,9 +21,11 @@ const Header=()=>{
   const isOnline=useOnline();
   // what is the output of below
   // console.log(useState());
-  const {user} = useContext(UserContext)
+  const {user} = useContext(UserContext);
+  const cartItems = useSelector((store) => store.cart.items);
+  console.log(cartItems)
     return (
-      <div className="flex justify-between bg-amber-200 drop-shadow-md sm:bg-blue-200">
+      <div className="flex justify-between bg-blue-200 drop-shadow-md sm:bg-amber-200">
         <Title/>
         <div className="nav-items">
           <ul className="flex py-10">
@@ -30,7 +34,7 @@ const Header=()=>{
             <Link to="/about"><li className="px-2">About</li></Link>
             <Link to="/contact"><li className="px-2">Contact</li></Link>
             <Link to="/instamart"><li className="px-2">Instamart</li></Link>
-            <li>Cart</li>
+            <Link to="/cart"><li className="px-2">Cart- {cartItems.length}</li></Link>
           </ul>
         </div>
       {/* here we are showing online offline status alongwith login */}
