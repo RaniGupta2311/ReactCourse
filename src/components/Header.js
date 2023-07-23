@@ -10,9 +10,9 @@ const loggedInUser=()=>{
 }
 const Title=()=>{
     return (
-      <a href="/"><img src="https://obs.line-scdn.net/0m0339dd5b72513e8a8d6127b836e5ecf1e128f1da5cb7?0" alt="logo" className="h-28 p-2"/></a>
+      // <a href="/"><img src="https://obs.line-scdn.net/0m0339dd5b72513e8a8d6127b836e5ecf1e128f1da5cb7?0" alt="logo" className="h-28 p-2"/></a>
       // loading image via importing image from locally
-      // <a href="/"><img src={Logo} alt="logo" className="logo"/></a>
+      <a href="/"><img data-testid="logo" src={Logo} alt="logo" className="h-28 p-2"/></a>
     )
   }
 
@@ -34,12 +34,12 @@ const Header=()=>{
             <Link to="/about"><li className="px-2">About</li></Link>
             <Link to="/contact"><li className="px-2">Contact</li></Link>
             <Link to="/instamart"><li className="px-2">Instamart</li></Link>
-            <Link to="/cart"><li className="px-2">Cart- {cartItems.length}</li></Link>
+            <Link to="/cart"><li data-testid="cart" className="px-2">Cart- {cartItems.length}</li></Link>
           </ul>
         </div>
       {/* here we are showing online offline status alongwith login */}
 
-      <h2>{isOnline ? '✅' : '🛑'}</h2>
+      <h2 data-testid="online-status">{isOnline ? '✅' : '🛑'}</h2>
       <span className="p-10 font-bold text-red-900">{user.name}</span>
         {
           isLoggedIn?(

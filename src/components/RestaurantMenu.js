@@ -37,7 +37,7 @@ const RestaurantMenu=()=>{
                 {
                     Object.values(restaurant?.menu?.items).map((item)=>(
                         /* <li key={item.id}>{item.name}</li> */
-                        <MenuCard key={item.id} item={item}/>
+                        <MenuCard data-testid="menu" key={item.id} item={item}/>
                     ))
                 }
         </div>

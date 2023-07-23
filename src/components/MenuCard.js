@@ -18,7 +18,7 @@ const MenuCard=(props)=>{
                 <h4>{props.item.name}</h4>
                 <p>Rs {props.item.price/100}</p>
                 <p className="description">{props.item.description}</p>
-                <button className="bg-blue-200 sm:bg-amber-200 p-1 w-20" onClick={()=>handleFoodItem(props.item)}>Add + </button>
+                <button data-testid="addBtn" className="bg-blue-200 sm:bg-amber-200 p-1 w-20" onClick={()=>handleFoodItem(props.item)}>Add + </button>
             </div>
           
         </div>
